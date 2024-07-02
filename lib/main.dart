@@ -51,8 +51,7 @@ class MapsApp extends StatelessWidget {
  * 4. Map State
  * 5. Map Screen
  * 6. Map view
- * 7. Btn follow user
- * 8. Btn toggle user route
+ * 7. Btn toggle user route
  * 
  */
 

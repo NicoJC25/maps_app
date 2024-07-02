@@ -78,29 +78,17 @@ class _MapScreenState extends State<MapScreen> {
 //EXPLICACION DE TODO EL CODIGO:
 /**
  * 
- * Linea 15: Declaracion de una variable tipo late, para traer el bloc de "location"
+ * Lineas 44 a la 49: Se retorna un blocbuilder, en el que, se crea un map que 
+ * va a traer todas las polylines de los archivos anteriores. Si el booleano
+ * "showMyRoute" está en falso, entonces se va a utilizar el metodo integrado
+ * "removeWhere" para remover visualmente la polyline, pero no de las lista.
+ * Con esto, si el usuario quiere volver a ver la polyline, la misma se irá
+ * almacenando en segundo plano y se mostrará el recorrido total.
  * 
- * Lineas 21 y 23: Se define el valor de la variable anterior como el bloc y luego,
- * se trae la posicion actual del cliente por medio de la funcion "getCurrentPosition"
+ * Linea 56: Se indica que, las polylines del mapa, serán las que se trajeron
+ * hace un momento, establecidas como un "set" ya que asi lo requiere el programa.
  * 
- * Lineas 27 a la 30: "dispose" es una clase integrada que se ejecuta cuando el
- * stateful widget se rompe o se reinicia, asi, de esa manera, se obtiene la
- * posicion de vuelta asi se haya salido a otra pantalla.
- * 
- * Lineas 37 a la 41: Se hace una validacion de, si la ubicacion del cliente es
- * nula, si es asi, que se ponga un mensaje en pantalla de espera mientras se
- * carga el mapa.
- * 
- * Lineas 43 a la 51: "SingleChildScrollView", es un widget que asegura el deslizar
- * una pantalla asi hayan objetos superpuestos, muy util para el mapa. Dentro,
- * tendrá un stack ya que se pondrán otros objetos encima del mapa, y dentro del
- * stack, se retorna un objeto tipo "MapView", que es un widget personalizado
- * que se explicará mas adelantes, pero por ahora, se indica que la posicion
- * inicial es la posicion actual, ya que se tiene que establecer un punto de
- * aparicion al ejecutar el mapa.
- * 
- * Lineas 54 a la 57: Se establece un FAB y hasta este momento se establece
- * solo la ubicacion, las caracteristicas del boton estan en otro archivo, pero
- * el objetivo del boton es reubicar al cliente en donde esta su ubicacion actual.
+ * Linea 69: Se agrega el boton para mostrar u ocultar las polylines del recorrido
+ * del usuario.
  * 
  */

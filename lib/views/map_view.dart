@@ -46,19 +46,8 @@ class MapView extends StatelessWidget {
 //EXPLICACION DE TODO EL CODIGO:
 /**
  * 
- * Linea 8: Se crea una variable para obtener la ubicacion al ejecutar el programa.
+ * Linea 9: Se crea una variable para traer el set de polylines.
  * 
- * Lineas 14 a la 17: Se crea una variable que tenga el bloc como valor y se
- * indica que al empezar el programa, la ubicacion de la camara será donde esta
- * el cliente y el nivel del zoom.
- * 
- * Linea 19: Se define una variable que tenga las caracteristicas de la pantalla.
- * 
- * Lineas 21 a la 31: Se define una caja grande, la cual ocupara todo el ancho y
- * alto de la pantalla. Sera de tipo "GoogleMap" que es algo integrado para indicar
- * que se debe ejecutar un mapa, luego, se asigna su posicion inicial y algunas
- * caracteristicas modificables como ver o no ver la brujula, habilitar el circulo
- * azul que indica la ubicacion de uno, y, por ultimo, se ejecuta el evento de
- * iniciar el mapa.
+ * Linea 35: Se agregan las polylines.
  * 
  */
