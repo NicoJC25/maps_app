@@ -21,6 +21,7 @@ class _MapScreenState extends State<MapScreen> {
     super.initState();
 
     locationBloc = BlocProvider.of<LocationBloc>(context);
+    // locationBloc.getCurrentPosition();
     locationBloc.startFollowingUser();
   }
 
@@ -46,15 +47,17 @@ class _MapScreenState extends State<MapScreen> {
                 polylines.removeWhere((key, value) => key == 'myRoute');
               }
 
-              return Stack(
-                children: [
-                  MapView(
-                    initialLocation: locationState.lastKnownLocation!,
-                    polylines: polylines.values.toSet(),
-                  ),
-                  const SearchBar(),
-                  const ManualMarker(),
-                ],
+              return SingleChildScrollView(
+                child: Stack(
+                  children: [
+                    MapView(
+                      initialLocation: locationState.lastKnownLocation!,
+                      polylines: polylines.values.toSet(),
+                    ),
+                    const SearchBarMaps(),
+                    const ManualMarker(),
+                  ],
+                ),
               );
             },
           );
@@ -76,17 +79,7 @@ class _MapScreenState extends State<MapScreen> {
 //EXPLICACION DE TODO EL CODIGO:
 /**
  * 
- * Lineas 44 a la 49: Se retorna un blocbuilder, en el que, se crea un map que 
- * va a traer todas las polylines de los archivos anteriores. Si el booleano
- * "showMyRoute" está en falso, entonces se va a utilizar el metodo integrado
- * "removeWhere" para remover visualmente la polyline, pero no de las lista.
- * Con esto, si el usuario quiere volver a ver la polyline, la misma se irá
- * almacenando en segundo plano y se mostrará el recorrido total.
- * 
- * Linea 56: Se indica que, las polylines del mapa, serán las que se trajeron
- * hace un momento, establecidas como un "set" ya que asi lo requiere el programa.
- * 
- * Linea 69: Se agrega el boton para mostrar u ocultar las polylines del recorrido
- * del usuario.
+ * Lineas 57 y 58: Se muestran en el mapa el buscador y los demas iconos cuando
+ * se activa el destino manual.
  * 
  */

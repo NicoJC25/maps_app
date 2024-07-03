@@ -7,6 +7,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maps_app/config/themes/themes.dart';
+import 'package:maps_app/models/models.dart';
 
 import '../location/location_bloc.dart';
 
@@ -28,6 +29,9 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     on<UpdateUserPolylineEvent>(_onPolylineNewPoint);
     on<OnToggleUserRoute>(
         (event, emit) => emit(state.copyWith(showMyRoute: !state.showMyRoute)));
+
+    on<DisplayPolylinesEvent>(
+        (event, emit) => emit(state.copyWith(polylines: event.polylines)));
 
     locationStateSubscription = locationBloc.stream.listen((locationState) {
       if (locationState.lastKnownLocation != null) {
@@ -72,6 +76,22 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     emit(state.copyWith(polylines: currentPolylines));
   }
 
+  Future drawRoutePolyline(RouteDestination destination) async {
+    final myRoute = Polyline(
+      polylineId: const PolylineId('route'),
+      color: Colors.black,
+      width: 5,
+      points: destination.points,
+      startCap: Cap.roundCap,
+      endCap: Cap.roundCap,
+    );
+
+    final currentPolylines = Map<String, Polyline>.from(state.polylines);
+    currentPolylines['route'] = myRoute;
+
+    add(DisplayPolylinesEvent(currentPolylines));
+  }
+
   void moveCamera(LatLng newLocation) {
     final cameraUpdate = CameraUpdate.newLatLng(newLocation);
     _mapController?.animateCamera(cameraUpdate);
@@ -87,52 +107,17 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 //EXPLICACION DE TODO EL CODIGO:
 /**
  * 
- * Lineas 17 y 20: Se define una variable que va a tomar el "locationBloc" ya
- * que sera necesario para el futuro y la otra linea, define una variable para
- * cerrar el flujo de una funcion que se verá mas adelante.
+ * Lineas 33 a la 35: Se crea un nuevo estado para las polylines que se trazan
+ * del punto A al punto B. Estas polylines se agregan a un map diferente al de
+ * la polyline de la ubicacion actual.
  * 
- * Lineas 24 a la 29: Se inicializan varios eventos. El primero será "OnStartFollowingUserEvent"
- * que se ejecutará cuando inicie la app, para seguir al usuario automaticamente
- * en todo momento, por medio de una funcion privada que se verá mas adelante. 
- * El siguiente será "OnStopFollowingUserEvent", que ejecutará un evento que indica
- * que el parametro de seguir al usuario estará en falso. El siguiente evento es
- * "UpdateUserPolylineEvent" que va a traer otra funcion que se verá mas adelante.
- * Por ultimo, "OnToggleUserRoute" que cambiará el estado de la variable "showMyRoute"
+ * Lineas 79 a la 94: Se crea una funcion tipo future "drawRoutePolyline" que va
+ * a retornar la lista de polylines al evento explicado anteriormente. Se define
+ * la parte visual de la polyline, solo que un argumento cambia: los points
+ * serán los traidos y convertidos desde el "searchbloc". Luego, al igual que
+ * las polylines de la ubicacion actual, se agrega todo a un mapa para que no
+ * se sobreescriban a si mismas y finalmente, se envian como argumento al evento.
  * 
- * Lineas 31 a la 40: La variable que cerrará el flujo del "locationbloc" va a tomar
- * el mismo flujo como valor, ya que asi lo podrá cerrar despues. Primero, se
- * valida si hay un ultimo estado de localizacion actual registrado, si lo hay,
- * entonces se enviará la ubicacion actual del usuario como una "polyline" que esto
- * se explicará mas adelante, pero es una linea que traza una ubicacion, en este
- * caso, va a trazar una linea por todos los lados donde el usuario ha estado 
- * caminando.
  * 
- * Luego, se hace otra validacion de si se esta haciendo seguimiento al usuario,
- * en caso de que no, que retorne nada. Y una ultima validacion de si se sabe
- * la ubicacion actual del usuario, en caso de que no, tambien que retorne nada
- * y reinicie todos los procesos. Estas validaciones son necesarias para saber
- * en que estado se tiene la aplicacion, dependiendo de este, se pueden ejecutar
- * las otras acciones o no, y con eso no se ejecutan acciones que puedan sacar
- * errores.
- * 
- * Lineas 50 a la 56: Se crea la funcion privada "_onStartFollowingUser" que va
- * a inicializar un evento donde se indique que la variable booleana 
- * "isFollowingUser" está en true, adicional, se indica que si se conoce la
- * ubicacion actual del usuario, redireccione la camara automaticamente a el,
- * accion que se ejecuta cada que se registra una nueva ubicacion del usuario.
- * 
- * Lineas 58 a la 72: Se crea la funcion privda "_onPolylineNewPoint" que va a
- * inicializar un evento, dentro de el, se va a establecer la polyline que
- * se msotrará mientras el usuario se mueva. Se configura dentro una id automatica,
- * sus caracteristicas visuales y los puntos, que seran en este caso la variable
- * "userLocation" de los eventos que ya vendrá con el valor de la posicion del
- * usuario. Finalmente, se hace un Map que va a tener todas las polylines de
- * la linea, estableciendo que cada valor del Map, será la polyline establecida
- * anteriormente por singular. Ya por ultimo, se emite ese Map a la variable
- * "polylines" que es la que almacena todas las polylines generales afuera
- * del bloc.
- * 
- * Lineas 79 a la 83: Se cierra el flujo del "locationBloc" por medio de la
- * funcion "close()"
  * 
  */

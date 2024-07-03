@@ -27,19 +27,19 @@ class MapView extends StatelessWidget {
         onPointerMove: (pointerMoveEvent) =>
             mapBloc.add(OnStopFollowingUserEvent()),
         child: GoogleMap(
-          initialCameraPosition: initialCameraPosition,
-          compassEnabled: false,
-          myLocationEnabled: true,
-          zoomControlsEnabled: false,
-          myLocationButtonEnabled: false,
-          polylines: polylines,
-          onMapCreated: (controller) =>
-              mapBloc.add(OnMapInitializedEvent(controller)),
-          // onCameraMove: ( position ) => mapBloc.mapCenter = position.target
+            initialCameraPosition: initialCameraPosition,
+            compassEnabled: false,
+            myLocationEnabled: true,
+            zoomControlsEnabled: false,
+            myLocationButtonEnabled: false,
+            polylines: polylines,
+            onMapCreated: (controller) =>
+                mapBloc.add(OnMapInitializedEvent(controller)),
+            onCameraMove: (position) => mapBloc.mapCenter = position.target
 
-          // TODO: Markers
-          // onCameraMove: ,
-        ),
+            // TODO: Markers
+            // onCameraMove: ,
+            ),
       ),
     );
   }
@@ -48,8 +48,8 @@ class MapView extends StatelessWidget {
 //EXPLICACION DE TODO EL CODIGO:
 /**
  * 
- * Linea 9: Se crea una variable para traer el set de polylines.
- * 
- * Linea 35: Se agregan las polylines.
+ * Linea 38: Se asigna a la variable "onCameraMove" que se va a obtener la posicion
+ * de la variable "mapCenter" del "mapBloc" con base a la posicion central del
+ * movimiento de la camara.
  * 
  */
