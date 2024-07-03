@@ -103,21 +103,3 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     return super.close();
   }
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Lineas 33 a la 35: Se crea un nuevo estado para las polylines que se trazan
- * del punto A al punto B. Estas polylines se agregan a un map diferente al de
- * la polyline de la ubicacion actual.
- * 
- * Lineas 79 a la 94: Se crea una funcion tipo future "drawRoutePolyline" que va
- * a retornar la lista de polylines al evento explicado anteriormente. Se define
- * la parte visual de la polyline, solo que un argumento cambia: los points
- * serán los traidos y convertidos desde el "searchbloc". Luego, al igual que
- * las polylines de la ubicacion actual, se agrega todo a un mapa para que no
- * se sobreescriban a si mismas y finalmente, se envian como argumento al evento.
- * 
- * 
- * 
- */

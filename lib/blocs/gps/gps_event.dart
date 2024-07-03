@@ -14,14 +14,3 @@ class GpsAndPermissionEvent extends GpsEvent {
   const GpsAndPermissionEvent(
       {required this.isGpsEnabled, required this.isGpsPermissionGranted});
 }
-
-//EXPLICACION DE TODO EL CODIGO
-/**
- * 
- * Se utiliza la clase creada por el comando, "GpsEvent", la cual solo tendra
- * una lista de tipo "get" que obtiene valores.
- * 
- * Mas abajo, se crea o si ya se tiene, se utiliza la clase "GpsAndPermissionEvent"
- * la cual creará las dos variables booleanas para validar los permisos.
- * 
- */

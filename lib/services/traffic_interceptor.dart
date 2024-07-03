@@ -17,13 +17,3 @@ class TrafficInterceptor extends Interceptor {
     super.onRequest(options, handler);
   }
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Este es un interceptador. Un interceptador, es una configuracion que uno puede
- * hacer por defecto de acuerdo a una peticion http, la configuracion va de la
- * mano con el header de esta peticion. Se mandan configuraciones como el token
- * de acceso, alternativas, la encriptacion geometry, entre otras. 
- * 
- */

@@ -48,5 +48,3 @@ const takunaMapTheme = [
     ]
   }
 ];
-
-//Esta es la configuracion del mapa personalizado, sacado de la pagina "Snazzy maps"

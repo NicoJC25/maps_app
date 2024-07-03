@@ -44,12 +44,3 @@ class MapView extends StatelessWidget {
     );
   }
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Linea 38: Se asigna a la variable "onCameraMove" que se va a obtener la posicion
- * de la variable "mapCenter" del "mapBloc" con base a la posicion central del
- * movimiento de la camara.
- * 
- */

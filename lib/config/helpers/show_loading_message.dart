@@ -25,11 +25,3 @@ void showLoadingMessage(BuildContext context) {
           )));
   return;
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Se crea un widget que se mostrará como mensaje de carga mientras se genera
- * la polyline de punto A a punto B.
- * 
- */

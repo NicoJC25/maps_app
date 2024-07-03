@@ -1,4 +1,3 @@
-//Exportaciones para todos los widgets
 export 'package:maps_app/presentation/widgets/searchbar.dart';
 export 'package:maps_app/presentation/widgets/btn_follow_user.dart';
 export 'package:maps_app/presentation/widgets/btn_location.dart';

@@ -36,31 +36,3 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         points: latLngList, duration: duration, distance: distance);
   }
 }
-
-
-//EXPLICACION DE TODO EL CODIGO
-/**
- * 
- * Lineas 11 a la 19: En la clase principal, se crea una variable que va a tener
- * lo relacionado al servicio de trafico. Luego, en el constructor, se adjuntan
- * 2 eventos, uno cuando se active el marcador manual y otro cuando se desactive,
- * poniendo en true o false el respectivo booleano de mostrar el display.
- * 
- * Se crea una funcion tipo Future "getCoorsStartToEnd", que será de tipo
- * "RouteDestination", un modelo creado apra traer las 3 caracteristicas que se
- * van a usar, por lo cual, va a retornar los valores que necesita ese modelo.
- * 
- * Primero, se define una variable que va a ser la respuesta de la traida de las
- * coordenadas marcadas en el mapa. Al obtener estas coordenadas, se van a sacar
- * la encriptacion tipo "geometry" de las coordenadas, la duracion de tiempo
- * del punto A al punto B, y la distancia. Luego, se va a decodificar los
- * puntos del "geometry" como se ve en la linea 29. El "accuracyExponent" es 6
- * debido a que esa es la cantidad de exponentes que usa MapBox en sus coordenadas.
- * 
- * Se crea una variable que va a mapear la lista anterior ya que, esa lista,
- * tiene valores de numeros y se necesitan valores de longitud y latitud. Entonces,
- * por cada coordenada, se va a crear un objeto tipo "LatLng" y al final, se va
- * a convertir en lista el map.
- * 
- * Por ultimo, se mandan las variable al modelo de "RouteDestination"
- */

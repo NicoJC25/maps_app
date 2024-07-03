@@ -67,29 +67,3 @@ class _SearchBarBody extends StatelessWidget {
     );
   }
 }
-
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Lineas 11 a la 23: Se define una clase padre que estará tambien segmentada como
- * "manual_marker" por la validacion, de que, si "displayManualMarker" esta en true,
- * no se deberia mostrar el buscador ya que es la otra pantalla, pero si está en
- * false, se muestra este buscador adicional de agregar una animacion al mismo.
- * 
- * Lineas 25 a la 35: Se crea la clase del cuerpo como tal, se utiliza una 
- * variable para traer el "searchbloc" y se indica que si se eligió la opcion
- * de elegir destino manual, se oculte el buscador.
- * 
- * Lineas 37 a la 68: Se indica que todo irá en un "safearea" para respetar los
- * espacios del dispositivo. Luego, se indica que el buscador será un contenedor.
- * Desde ahi hasta la linea 43 son configuraciones de su altura y anchura. Se
- * usa "GestureDetector" que es una funcion para saber si se esta dando click
- * o interactuando con algo, en este caso, con el contenedor.
- * 
- * Se indica que si se dio click al contenedor, muestre el "delegate" hecho de
- * forma personalizada y se ejecuta la funcion para los resultados de la busqueda.
- * 
- * De ahi para abajo, son solo configuraciones visuales para el buscador, nada mas.
- * 
- */

@@ -1,4 +1,3 @@
-//Configuraciones del mapeado que usa MapBox
 import 'dart:convert';
 
 class TrafficResponse {

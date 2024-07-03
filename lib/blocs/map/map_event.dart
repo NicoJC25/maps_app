@@ -28,12 +28,3 @@ class DisplayPolylinesEvent extends MapEvent {
   final Map<String, Polyline> polylines;
   const DisplayPolylinesEvent(this.polylines);
 }
-
-
-//EXPLICACION DE TODO EL CODIGO
-/**
- * 
- * Lineas 27 a la 30: Se crea un nuevo evento que va a obtener un mapa de
- * polylines que serán las polylines del punto A al punto B.
- * 
- */

@@ -24,12 +24,3 @@ class BtnToggleUserRoute extends StatelessWidget {
     );
   }
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Linea 12: Se trae el bloc del mapa.
- * Lineas 14 a la 23: Se asigna las caracteristicas visuales del boton y, al presionarlo,
- * se asigna que ejecutará la funcion "OnToggleUserRoute" perteneciente al map.
- * 
- */

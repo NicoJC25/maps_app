@@ -32,21 +32,3 @@ class MapState extends Equatable {
   List<Object> get props =>
       [isMapInitialized, isFollowingUser, showMyRoute, polylines];
 }
-
-//EXPLICACION DE TODO EL CODIGO
-/**
- * 
- * Linea 7: Se inicializa la variable para mostrar la polyline del recorrido
- * del usuario
- * 
- * Linea 10: Se crea el mapa que va a almacenar las polylines
- * 
- * Lineas 15 a 17: Se agregan la variable y el map al constructor y adicional
- * se hace una validacion donde se indica que si el map de polylines no tiene
- * nada, se envíe una lista vacia en cambio de la polyline.
- * 
- * Lineas 22 y 23: Se agregan las variables a la lista de copias.
- * 
- * Lineas 27 y 28: Se agregan las validaciones de la lista de copias.
- * 
- */

@@ -75,11 +75,3 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Lineas 57 y 58: Se muestran en el mapa el buscador y los demas iconos cuando
- * se activa el destino manual.
- * 
- */
