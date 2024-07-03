@@ -21,7 +21,6 @@ class _MapScreenState extends State<MapScreen> {
     super.initState();
 
     locationBloc = BlocProvider.of<LocationBloc>(context);
-    // locationBloc.getCurrentPosition();
     locationBloc.startFollowingUser();
   }
 
@@ -47,17 +46,15 @@ class _MapScreenState extends State<MapScreen> {
                 polylines.removeWhere((key, value) => key == 'myRoute');
               }
 
-              return SingleChildScrollView(
-                child: Stack(
-                  children: [
-                    MapView(
-                      initialLocation: locationState.lastKnownLocation!,
-                      polylines: polylines.values.toSet(),
-                    ),
-                    const SearchBar(),
-                    const ManualMarker(),
-                  ],
-                ),
+              return Stack(
+                children: [
+                  MapView(
+                    initialLocation: locationState.lastKnownLocation!,
+                    polylines: polylines.values.toSet(),
+                  ),
+                  const SearchBar(),
+                  const ManualMarker(),
+                ],
               );
             },
           );
