@@ -24,14 +24,3 @@ class SearchState extends Equatable {
   @override
   List<Object> get props => [displayManualMarker, places, history];
 }
-
-//EXPLICACION DE TODO EL CODIGO.
-/**
- * 
- * Lineas 5 y 6: Creacion de las variables necesarias para los lugares y el historial.
- * 
- * Lineas 8 a la 11: Implementacion de estas variables al constructor
- * 
- * Lineas 13 a la 22: Implementacion de estas variables al "copyWith"
- * 
- */

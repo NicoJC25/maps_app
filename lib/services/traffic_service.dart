@@ -42,11 +42,3 @@ class TrafficService {
     return placesResponse.features;
   }
 }
-
-//EXPLICACION DE TODOS LOS CAMBIOS:
-/**
- * 
- * En general, se repite el mismo proceso que con el otro servicio. Se puede
- * sacar por analisis y logica como se desarrolló todo.
- * 
- */

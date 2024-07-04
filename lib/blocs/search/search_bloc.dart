@@ -47,17 +47,3 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     add(OnNewPlacesFoundEvent(newPlaces));
   }
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Lineas 19 a 23: Se crean 2 eventos: El primero para añadir los lugares que se
- * buscan, el segundo para añadirlos en el historial, el primero como tal es
- * para buscarlos.
- * 
- * Lineas 43 a la 48: Se crea una funcion tipo Future "getPlacesByQuery" que
- * obtiene la proximidad y la solicitud de busqueda, utiliza await para esperar
- * que se haga el envío de la lista con todos los lugares y ya obtiene los 
- * elementos necesarios. Por ultimo, lo agrega al evento de lugares.
- * 
- */

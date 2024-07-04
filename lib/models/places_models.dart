@@ -220,15 +220,3 @@ class EnumValues<T> {
     return reverseMap;
   }
 }
-
-
-//Configuracion traida del quick.io al hacer la peticion get en postman
-//IMPORTANTE: 
-/**
- * 
- * Si se esta creando una aplicacion como esta que tiene funcionalidades de mapa,
- * hay que recordar modificar este archivo ya sea comentando parametros o
- * cambiandolos si se tiene el conocimiento, por si al ejecutar, el programa
- * falla en este archivo.
- * 
- */

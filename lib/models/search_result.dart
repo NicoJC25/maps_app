@@ -21,13 +21,3 @@ class SearchResult {
     return '{ cancel: $cancel, manual: $manual }';
   }
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Lineas 8 a 10: Se agregan las 3 variables para hacer funcionar la busqueda
- * por lugares.
- * 
- * Lineas 12 a 17: Se agregan las variables al constructor.
- * 
- */

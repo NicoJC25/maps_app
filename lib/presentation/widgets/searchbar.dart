@@ -81,16 +81,3 @@ class _SearchBarBody extends StatelessWidget {
     );
   }
 }
-
-//EXPLICACIO DE TOO EL CODIGO:
-/**
- * 
- * Lineas 31 y 32: Se agregan otros 2 blocs.
- * 
- * Lineas 39 a la 48: Se hace una validacion cuando la busqueda no sea manual
- * sino por lugares. Se trae la ubicacion de inicio como la ubicacion del
- * usuario, la ubicacion final como el valor de la variable "position", se les
- * hace sus respectivas validaciones por si se encuentran nulas, y, por ultimo,
- * se ejecuta la clase que se encarga de construir la polyline en el mapa.
- * 
- */

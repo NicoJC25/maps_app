@@ -16,11 +16,3 @@ class PlacesInterceptor extends Interceptor {
     super.onRequest(options, handler);
   }
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Al igual que el archivo "traffic_interceptor", este archivo se encarga de enviar
- * los headers respectivos a la peticion HTTP de los lugares.  
- * 
- */
