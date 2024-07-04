@@ -16,6 +16,11 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         (event, emit) => emit(state.copyWith(displayManualMarker: true)));
     on<OnDeactivateManualMarkerEvent>(
         (event, emit) => emit(state.copyWith(displayManualMarker: false)));
+
+    on<OnNewPlacesFoundEvent>(
+        (event, emit) => emit(state.copyWith(places: event.places)));
+    on<AddToHistoryEvent>((event, emit) =>
+        emit(state.copyWith(history: [event.place, ...state.history])));
   }
 
   Future<RouteDestination> getCoorsStartToEnd(LatLng start, LatLng end) async {
@@ -35,4 +40,24 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     return RouteDestination(
         points: latLngList, duration: duration, distance: distance);
   }
+
+  Future getPlacesByQuery(LatLng proximity, String query) async {
+    final newPlaces = await trafficService.getResultsByQuery(proximity, query);
+
+    add(OnNewPlacesFoundEvent(newPlaces));
+  }
 }
+
+//EXPLICACION DE TODO EL CODIGO:
+/**
+ * 
+ * Lineas 19 a 23: Se crean 2 eventos: El primero para añadir los lugares que se
+ * buscan, el segundo para añadirlos en el historial, el primero como tal es
+ * para buscarlos.
+ * 
+ * Lineas 43 a la 48: Se crea una funcion tipo Future "getPlacesByQuery" que
+ * obtiene la proximidad y la solicitud de busqueda, utiliza await para esperar
+ * que se haga el envío de la lista con todos los lugares y ya obtiene los 
+ * elementos necesarios. Por ultimo, lo agrega al evento de lugares.
+ * 
+ */

@@ -25,12 +25,26 @@ class SearchBarMaps extends StatelessWidget {
 class _SearchBarBody extends StatelessWidget {
   const _SearchBarBody();
 
-  void onSearchResults(BuildContext context, SearchResult result) {
+  Future<void> onSearchResults(
+      BuildContext context, SearchResult result) async {
     final searchBloc = BlocProvider.of<SearchBloc>(context);
+    final locationBloc = BlocProvider.of<LocationBloc>(context);
+    final mapBloc = BlocProvider.of<MapBloc>(context);
 
     if (result.manual == true) {
       searchBloc.add(OnActivateManualMarkerEvent());
       return;
+    }
+
+    if (result.position != null) {
+      final start = locationBloc.state.lastKnownLocation;
+      if (start == null) return;
+
+      final end = result.position;
+      if (end == null) return;
+
+      final destination = await searchBloc.getCoorsStartToEnd(start, end);
+      await mapBloc.drawRoutePolyline(destination);
     }
   }
 
@@ -67,3 +81,16 @@ class _SearchBarBody extends StatelessWidget {
     );
   }
 }
+
+//EXPLICACIO DE TOO EL CODIGO:
+/**
+ * 
+ * Lineas 31 y 32: Se agregan otros 2 blocs.
+ * 
+ * Lineas 39 a la 48: Se hace una validacion cuando la busqueda no sea manual
+ * sino por lugares. Se trae la ubicacion de inicio como la ubicacion del
+ * usuario, la ubicacion final como el valor de la variable "position", se les
+ * hace sus respectivas validaciones por si se encuentran nulas, y, por ultimo,
+ * se ejecuta la clase que se encarga de construir la polyline en el mapa.
+ * 
+ */
