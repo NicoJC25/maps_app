@@ -13,12 +13,3 @@ class RouteDestination {
       required this.distance,
       required this.endPlace});
 }
-
-//EXPLICACION DE LOS CAMBIOS REALIZADOS:
-/**
- * 
- * Linea 2: Se agrega importacion de los modelos para usar el tipo de dato "Feature"
- * 
- * Linea 8 y 14: Se agrega "endPlace" como nueva variable requerida.
- * 
- */

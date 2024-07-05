@@ -76,10 +76,3 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 }
-
-//EXPLICACION DE LOS CAMBIOS REALIZADOS:
-/**
- * 
- * Linea 56: Solo se agregan los marcadores al mapa.
- * 
- */

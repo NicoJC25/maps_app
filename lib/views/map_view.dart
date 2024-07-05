@@ -50,15 +50,3 @@ class MapView extends StatelessWidget {
     );
   }
 }
-
-//EXPLICACION DE LOS CAMBIOS REALIZADOS:
-/**
- * 
- * Lineas 2 y 9: Agregacion de importaciones necesarias para mostrar el estilo
- * del mapa con el metodo que no esta deprecado.
- * 
- * Lineas 14 y 20: Se agregan los "markers" como variable.
- * 
- * Lineas 44 y 45: Se agregan los markers y el style consecutivamente.
- * 
- */

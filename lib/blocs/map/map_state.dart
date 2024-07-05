@@ -37,12 +37,3 @@ class MapState extends Equatable {
   List<Object> get props =>
       [isMapInitialized, isFollowingUser, showMyRoute, polylines, markers];
 }
-
-//EXPLICACION DE LOS CAMBIOS REALIZADOS:
-/**
- * 
- * Todas las lineas: Se agregan los "markers" como variable y en el "copyWith"
- * 
- * 
- * 
- */

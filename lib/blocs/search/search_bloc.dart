@@ -52,13 +52,3 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     add(OnNewPlacesFoundEvent(newPlaces));
   }
 }
-
-//EXPLICACION DE LOS CAMBIOS REALIZADOS:
-/**
- * 
- * Linea 29: Se llama a la nueva funcion agregada en el "traffic_service" donde
- * se trae la ubicacion del lugar buscado.
- * 
- * Linea 46: Se agrega esta nueva variable donde se saca el lugar destino al objeto.
- * 
- */

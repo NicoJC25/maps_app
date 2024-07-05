@@ -20,12 +20,3 @@ class TestMarkerScreen extends StatelessWidget {
     );
   }
 }
-
-//EXPLICACION DEL CODIGO
-/**
- * 
- * Este es un scaffold comun y corriente, el objetivo es que en el main, se
- * reemplace la pantalla que se esté mostrando en el momento por esta, para
- * ver los cambios que se van realizando y creando en los marcadores tipo widgets.
- * 
- */

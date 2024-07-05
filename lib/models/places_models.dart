@@ -1,5 +1,3 @@
-//Se comentaron algunas lineas de codigo para el correcto funcionamiento del programa.
-
 import 'dart:convert';
 
 class PlacesResponse {

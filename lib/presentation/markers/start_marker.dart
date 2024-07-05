@@ -99,14 +99,3 @@ class StartMarkerPainter extends CustomPainter {
   @override
   bool shouldRebuildSemantics(covariant CustomPainter oldDelegate) => false;
 }
-
-//EXPLICACIN RAPIDA
-/**
- * 
- * Este es el archivo donde se da el estilo propio al widget del marker del 
- * comienzo de la ruta. No tiene una explicacion avanzada porque es algo
- * intuitivo el uso del painter. Solo tomar en cuenta todas las importaciones
- * de archivo externos y al momento de realizar el widget propio, recordar
- * usar la "test_screen" para ir viendo como se quiere configurada cada cosa.
- * 
- */

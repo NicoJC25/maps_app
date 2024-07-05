@@ -52,19 +52,3 @@ class TrafficService {
     return placesResponse.features[0];
   }
 }
-
-//EXPLICACION DE LOS CAMBIOS REALIZADOS:
-/**
- * 
- * Linea 38: Se agrega manualmente el limite de los resultados.
- * 
- * Lineas 46 a 52: Se crea una funcion tipo Future "getInformationByCoors" que
- * tendrá como objetivo obtener la informacion de una coordenada, asi que
- * se envía una coordenada, se hace la misma configuracion que con los "places"
- * cuando se busca algo, solo que ahora el limite será de 1.
- * 
- * Ya que solo se requiere saber la informacion de la coordenada final, ya que
- * la del comienzo siempre será el usuario, entonces solo se limita a pasarse
- * una coordenada.
- * 
- */

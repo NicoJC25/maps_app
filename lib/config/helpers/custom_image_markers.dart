@@ -28,22 +28,3 @@ Future<BitmapDescriptor> getNetworkImageMarker() async {
 
   return BitmapDescriptor.bytes(data.buffer.asUint8List());
 }
-
-//EXPLICACION DE TODO EL CODIGO:
-/**
- * 
- * Aqui se configura la adaptacion de los marcadores tipo "asset" y tipo "byte"
- * o que vienen de google en otras palabras. Cosas importantes a resaltar:
- * 
- * - Importar "dart:ui" y recomendable renombrarlo como se hace al inicio.
- * 
- * - Agregar la carpeta "assets", dentro las imagenes assets y revisar las lineas
- *   59 y 60 del "pubspec.yaml" para saber la forma correcta de reconocer la
- *   carpeta en la ruta. 
- * 
- * - Linea 8: Configuracion del tamaño del marcador.
- * 
- * En general, no se comentan estas lineas de codigo ya que es un proceso mas
- * automatico y complicado de entender.
- * 
- */

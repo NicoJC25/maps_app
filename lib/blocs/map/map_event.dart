@@ -29,10 +29,3 @@ class DisplayPolylinesEvent extends MapEvent {
   final Map<String, Marker> markers;
   const DisplayPolylinesEvent(this.polylines, this.markers);
 }
-
-//EXPLICACION DE LOS CAMBIOS REALIZADOS:
-/**
- * 
- * Lineas 29 y 30: Se agregan los "markers" como parte del evento.
- * 
- */

@@ -95,10 +95,3 @@ class EndMarkerPainter extends CustomPainter {
   @override
   bool shouldRebuildSemantics(covariant CustomPainter oldDelegate) => false;
 }
-
-/**
- * 
- * Al igual que el "startMarker", aqui se define el estilo del otro marcador,
- * siendo algo parecido al anterior pero tiene algunos cambios
- * 
- */

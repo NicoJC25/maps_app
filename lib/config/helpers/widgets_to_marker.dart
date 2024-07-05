@@ -35,15 +35,3 @@ Future<BitmapDescriptor> getEndCustomMarker(
 
   return BitmapDescriptor.bytes(byteData!.buffer.asUint8List());
 }
-
-/**
- * 
- * Al igual que en el archivo "custom_image_markers", este archivo adapta los
- * marcadores tipo "widgets". Trae ambos de la carpeta "markers" y se adaptan.
- * 
- * Tomar en cuenta las mismas recomendaciones dadas en el otro archivo.
- * 
- * Y tampoco hay explicacion concreta porque son procesos automaticos y dificiles
- * de entender.
- * 
- */
