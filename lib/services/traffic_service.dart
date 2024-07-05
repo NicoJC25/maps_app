@@ -34,11 +34,37 @@ class TrafficService {
     final url = '$_basePlacesUrl/$query.json';
 
     final resp = await _dioPlaces.get(url, queryParameters: {
-      'proximity': '${proximity.longitude},${proximity.latitude}'
+      'proximity': '${proximity.longitude},${proximity.latitude}',
+      'limit': 7,
     });
 
     final placesResponse = PlacesResponse.fromMap(resp.data);
 
     return placesResponse.features;
   }
+
+  Future<Feature> getInformationByCoors(LatLng coors) async {
+    final url = '$_basePlacesUrl/${coors.longitude}, ${coors.latitude}.json';
+    final resp = await _dioPlaces.get(url, queryParameters: {'limit': 1});
+
+    final placesResponse = PlacesResponse.fromMap(resp.data);
+
+    return placesResponse.features[0];
+  }
 }
+
+//EXPLICACION DE LOS CAMBIOS REALIZADOS:
+/**
+ * 
+ * Linea 38: Se agrega manualmente el limite de los resultados.
+ * 
+ * Lineas 46 a 52: Se crea una funcion tipo Future "getInformationByCoors" que
+ * tendrá como objetivo obtener la informacion de una coordenada, asi que
+ * se envía una coordenada, se hace la misma configuracion que con los "places"
+ * cuando se busca algo, solo que ahora el limite será de 1.
+ * 
+ * Ya que solo se requiere saber la informacion de la coordenada final, ya que
+ * la del comienzo siempre será el usuario, entonces solo se limita a pasarse
+ * una coordenada.
+ * 
+ */

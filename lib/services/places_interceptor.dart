@@ -6,13 +6,18 @@ class PlacesInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.queryParameters.addAll({
-      'country': 'co',
-      'limit': 7,
-      'language': 'es',
-      'access_token': accesToken
-    });
+    options.queryParameters.addAll(
+        {'country': 'co', 'language': 'es', 'access_token': accesToken});
 
     super.onRequest(options, handler);
   }
 }
+
+//EXPLICACION DE LSO CAMBIOS REALIZADOS:
+/**
+ * 
+ * Se agrego en la linea 10 el país para tener mejor exactitud de los lugares buscados.
+ * Y adicional, se retiró el limite de busqueda ya se que agrega de manera manual
+ * en el "traffic_service".
+ * 
+ */

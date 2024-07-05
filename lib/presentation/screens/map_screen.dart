@@ -53,6 +53,7 @@ class _MapScreenState extends State<MapScreen> {
                     MapView(
                       initialLocation: locationState.lastKnownLocation!,
                       polylines: polylines.values.toSet(),
+                      markers: mapState.markers.values.toSet(),
                     ),
                     const SearchBarMaps(),
                     const ManualMarker(),
@@ -75,3 +76,10 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 }
+
+//EXPLICACION DE LOS CAMBIOS REALIZADOS:
+/**
+ * 
+ * Linea 56: Solo se agregan los marcadores al mapa.
+ * 
+ */

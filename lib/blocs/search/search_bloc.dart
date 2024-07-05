@@ -26,6 +26,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   Future<RouteDestination> getCoorsStartToEnd(LatLng start, LatLng end) async {
     final trafficResponse = await trafficService.getCoorsStartToEnd(start, end);
 
+    final endPlace = await trafficService.getInformationByCoors(end);
+
     final geometry = trafficResponse.routes[0].geometry;
     final distance = trafficResponse.routes[0].distance;
     final duration = trafficResponse.routes[0].duration;
@@ -38,7 +40,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         .toList();
 
     return RouteDestination(
-        points: latLngList, duration: duration, distance: distance);
+        points: latLngList,
+        duration: duration,
+        distance: distance,
+        endPlace: endPlace);
   }
 
   Future getPlacesByQuery(LatLng proximity, String query) async {
@@ -47,3 +52,13 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     add(OnNewPlacesFoundEvent(newPlaces));
   }
 }
+
+//EXPLICACION DE LOS CAMBIOS REALIZADOS:
+/**
+ * 
+ * Linea 29: Se llama a la nueva funcion agregada en el "traffic_service" donde
+ * se trae la ubicacion del lugar buscado.
+ * 
+ * Linea 46: Se agrega esta nueva variable donde se saca el lugar destino al objeto.
+ * 
+ */
